@@ -9,7 +9,7 @@ const cartSchema = Schema(
       {
         productId: { type: mongoose.objectId, ref: Product },
         size: { type: String, required: true },
-        qty: { type: String, default: 1, required: true },
+        qty: { type: Number, default: 1, required: true },
       },
     ],
   },
