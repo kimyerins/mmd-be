@@ -1,7 +1,7 @@
 const { Error } = require("mongoose");
 const Product = require("../models/Product");
 
-const PAGE_SIZE = 1;
+const PAGE_SIZE = 5;
 const productController = {};
 productController.createProduct = async (req, res) => {
   try {
@@ -66,8 +66,7 @@ productController.updateProduct = async (req, res) => {
       req.body;
     const product = await Product.findByIdAndUpdate(
       { _id: productId },
-      { sku, name, size, image, description, category, stock, status },
-      { new: true }
+      { sku, name, size, image, description, category, stock, status }
     );
     if (!product) throw new Error("item doesn't exist");
     res.status(200).json({ status: "success", data: product });
